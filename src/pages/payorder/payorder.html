@@ -19,60 +19,88 @@
 
 
 <ion-content padding>
-  <strong class="cash">
-    <b> Select Currency</b>
-  </strong>
-  <ion-list>
+  <form [formGroup]="payorderForm">
+    <strong class="cash">
+      <b> Select Currency</b>
+    </strong>
+    <ion-list radio-group formControlName="currency">
+      <ion-item>
+        <ion-label>PKR</ion-label>
+        <ion-radio value="PKR" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>USD</ion-label>
+        <ion-radio value="USD"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>others</ion-label>
+        <ion-radio value="others"></ion-radio>
+      </ion-item>
+    </ion-list>
+    <strong class="cash">
+      <b> Payment</b>
+    </strong>
+    <ion-list radio-group formControlName="payorderType">
+      <ion-item>
+        <ion-label>Cash</ion-label>
+        <ion-radio value="cash" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>QR Code</ion-label>
+        <ion-radio value="qrCode"></ion-radio>
+      </ion-item>
+    </ion-list>
     <ion-item>
-      <ion-label>PKR</ion-label>
-      <ion-checkbox></ion-checkbox>
+      <ion-label floating>Amount</ion-label>
+      <ion-input type="number" formControlName="ammount"></ion-input>
     </ion-item>
+    <h1 style="text-align: center;">Beneficiary Details</h1>
+    <ion-item>
+      <ion-label floating>Account Number</ion-label>
+      <ion-input type="text" formControlName="befName"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Bank Name</ion-label>
+      <ion-input type="text" formControlName="befAddress"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>CNIC/passport # OR NTN #</ion-label>
+      <ion-input type="number" formControlName="CNIC"></ion-input>
+    </ion-item>
+    <h1 style="text-align: center;">Additional Detail</h1>
+    <ion-item>
+      <ion-label floating>Beeficiary Name</ion-label>
+      <ion-input type="number" formControlName="befAccount"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Nic</ion-label>
+      <ion-input type="text" formControlName="befBank"></ion-input>
+    </ion-item>
+    <button ion-button type="submit" block (click)="payorderform()">submit</button>
+  </form>
 
-    <ion-item>
-      <ion-label>USD</ion-label>
-      <ion-checkbox></ion-checkbox>
-    </ion-item>
 
-    <ion-item>
-      <ion-label>Others</ion-label>
-      <ion-checkbox></ion-checkbox>
-    </ion-item>
-  </ion-list>
-  <ion-list radio-group>
-    <ion-item>
-      <ion-label>Cash</ion-label>
-      <ion-radio value="friends" checked></ion-radio>
-    </ion-item>
-    <ion-item>
-      <ion-label>QR Code</ion-label>
-      <ion-radio value="family"></ion-radio>
-    </ion-item>
-  </ion-list>
-  <ion-item>
-    <ion-label floating>Amount</ion-label>
-    <ion-input type="number"></ion-input>
-  </ion-item>
-  <h1 style="text-align: center;">Beneficiary Details</h1>
-  <ion-item>
-    <ion-label floating>Name</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Address</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>CNIC/passport # OR NTN #</ion-label>
-    <ion-input type="number"></ion-input>
-  </ion-item>
-  <h1 style="text-align: center;">Additional Detail</h1>
-  <ion-item>
-    <ion-label floating>Beeficiary Account</ion-label>
-    <ion-input type="number"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Bank Name & Address</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-  <button ion-button type="submit" block>submit</button>
+
+
+
+  <ion-card *ngIf="createdCode">
+    <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+    <ion-card-content>
+      <p>Value: {{ createdCode }}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="scannedCode">
+    <ion-card-content>
+      Result from Scan: {{ scannedCode }}
+    </ion-card-content>
+
+    <button ion-button type="submit" block>Share</button>
+    <button ion-button type="submit" block>Save</button>
+
+  </ion-card>
+
+  <ion-card *ngIf="createdCode">
+    <button ion-button type="submit" block>Share</button>
+    <button ion-button type="submit" block>Save</button>
+  </ion-card>
 </ion-content>

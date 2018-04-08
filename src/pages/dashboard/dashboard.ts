@@ -24,7 +24,8 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 })
 export class DashboardPage {
 
-  qrData = null;
+  qrData = [{'asdsad': "asdsadsa"}, {'asdasdsd': "asdsadsad"}]
+
   createdCode = null;
   scannedCode = null;
 
@@ -71,5 +72,3 @@ export class DashboardPage {
   }
 
 }
-
-

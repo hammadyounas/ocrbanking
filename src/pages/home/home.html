@@ -36,7 +36,7 @@
     <ion-title>Signup</ion-title>
   </ion-navbar>
 </ion-header>
- 
+
 <ion-content padding>
   <img src="" style="width: 100%" [hidden]="lastImage === null">
   <h3 [hidden]="lastImage !== null">BANL AL HABIB</h3>
@@ -45,81 +45,80 @@
       <ion-label floating>Name</ion-label>
       <ion-input type="text" name="name"></ion-input>
     </ion-item>
-      <ion-toolbar color="primary">
-    <ion-buttons>
-      <button ion-button icon-left (click)="presentActionSheet()">
-        <ion-icon name="camera"></ion-icon>Select CNIC Image
-      </button>
-      <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
-        <ion-icon name="cloud-upload"></ion-icon>Upload
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
-  <ion-item>
-      <ion-label floating>Number</ion-label>
-       <ion-input type="number"></ion-input>
+    <ion-toolbar color="primary">
+      <ion-buttons>
+        <button ion-button icon-left (click)="presentActionSheet()">
+          <ion-icon name="camera"></ion-icon>Select CNIC Image
+        </button>
+        <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
+          <ion-icon name="cloud-upload"></ion-icon>Upload
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+    <ion-item>
+      <ion-label floating>Cell Number</ion-label>
+      <ion-input type="number"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Password</ion-label>
-       <ion-input type="number"></ion-input>
+      <ion-input type="number"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Confirm Password</ion-label>
-       <ion-input type="number"></ion-input>
+      <ion-input type="number"></ion-input>
     </ion-item>
+    <!-- <ion-list radio-group>
+      <ion-item>
+        <ion-label floating>Dependent</ion-label>
+        <ion-radio value="dependent" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Independent</ion-label>
+        <ion-radio value="independent"></ion-radio>
+      </ion-item>
+    </ion-list> -->
+    <h6>select marital status</h6>
+
+
     <ion-list radio-group>
-  <ion-item>
-    <ion-label floating>Dependent</ion-label>
-    <ion-radio value="dependent" checked></ion-radio>
-  </ion-item>
-  <ion-item>
-    <ion-label floating>Independent</ion-label>
-    <ion-radio value="independent"></ion-radio>
-  </ion-item>
+      <ion-item>
+        <ion-label>Single</ion-label>
+        <ion-radio value="single" checked></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Married</ion-label>
+        <ion-radio value="married"></ion-radio>
+      </ion-item>
     </ion-list>
- <h6>select marital status</h6>
- 
 
-  <ion-list radio-group>
-  <ion-item>
-    <ion-label>Single</ion-label>
-    <ion-radio value="single" checked></ion-radio>
-  </ion-item>
-  <ion-item>
-    <ion-label>Married</ion-label>
-    <ion-radio value="married"></ion-radio>
-  </ion-item>
-</ion-list>
-
- <ion-item>
+    <ion-item>
       <ion-label>Education</ion-label>
-       <ion-input type="text"></ion-input>
+      <ion-input type="text"></ion-input>
     </ion-item>
-    <h6>Enter ICL or NTN if no NTN then enter Business Name</h6>
- <ion-item>
-      <ion-label>ICL/NTN</ion-label>
-       <ion-input type="text"></ion-input>
+    <ion-item>
+      <ion-label>NTN Or Business Name</ion-label>
+      <ion-input type="text"></ion-input>
     </ion-item>
-    
-<ion-item>
+
+    <ion-item>
       <ion-label>Organization</ion-label>
-       <ion-input type="text"></ion-input>
+      <ion-input type="text"></ion-input>
     </ion-item>
-     <ion-toolbar color="primary">
-        <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
-    <ion-buttons>
-      <button ion-button icon-left (click)="presentActionSheet()">
-        <ion-icon name="camera"></ion-icon>Select Your Image
-      </button>
-      <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
-        <ion-icon name="cloud-upload"></ion-icon>Upload
-      </button>
-    </ion-buttons>
-  </ion-toolbar>
-        <button ion-button type="submit" block>Create</button>
+    <ion-toolbar color="primary">
+      <img src="{{pathForImage(lastImage)}}" style="width: 100%" [hidden]="lastImage === null">
+      <ion-buttons>
+        <button ion-button icon-left (click)="presentActionSheet()">
+          <ion-icon name="camera"></ion-icon>Select Your Image
+        </button>
+        <button ion-button icon-left (click)="uploadImage()" [disabled]="lastImage === null">
+          <ion-icon name="cloud-upload"></ion-icon>Upload
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+    <button ion-button type="submit" block>Create</button>
   </form>
 </ion-content>
- 
+
 <!--<ion-footer>
   <ion-toolbar color="primary">
     <ion-buttons>

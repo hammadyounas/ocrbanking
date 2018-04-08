@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { DashboardPage } from "../dashboard/dashboard";
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+import { HomePage } from '../home/home';
 
 
 
@@ -13,7 +16,7 @@ export class ListPage {
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth: AngularFireAuth) {
     // If we navigated to this page, we will have an item available as a nav param
     this.selectedItem = navParams.get('item');
 
@@ -39,7 +42,20 @@ export class ListPage {
   }
 
 
-  login() {
-    this.navCtrl.push(DashboardPage)
+  login(email, pass) {
+    console.log(email);
+    console.log(pass);
+    
+    
+    // this.afAuth.auth.signInWithEmailAndPassword('test@test.com', '123456').then(data => {
+    //   console.log(data);
+        
+      this.navCtrl.push(DashboardPage)
+
+    // }).catch(err => {
+    //   this.navCtrl.push(HomePage)
+    //   console.log(err);
+      
+    // })
   }
 }

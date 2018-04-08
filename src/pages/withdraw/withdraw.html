@@ -9,7 +9,7 @@
   <div style="display: flex">
     <ion-navbar>
       <div style="display:-webkit-box;">
-        <ion-title text-center>withdraw</ion-title>
+        <ion-title text-center>Withdrawal ( Cheque )</ion-title>
         <ion-icon name="power" (click)="Logout()"></ion-icon>
       </div>
     </ion-navbar>
@@ -17,34 +17,58 @@
 </ion-header>
 
 
-  <ion-content padding>
-    <h1>Withdraw</h1>
-    <form>
-      <ion-item>
-        <ion-label>Date</ion-label>
-        <ion-datetime displayFormat="DD-MMMM-YYYY"></ion-datetime>
-      </ion-item>
-      <ion-item>
-        <ion-label floating>Pay</ion-label>
-        <ion-input type="text"></ion-input>
-      </ion-item>
-      <ion-item style="margin-top: 18px;">
-        <ion-input type="number" placeholder="Cash Ammount"></ion-input>
-      </ion-item>
+<ion-content padding>
+  <h1>Withdrawal ( Cheque )</h1>
+  <form [formGroup]="withdrawForm">
+    <ion-item>
+      <ion-label floating>Pay</ion-label>
+      <ion-input type="text" formControlName="pay" (input)='f($event.target.value)'></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Date</ion-label>
+      <ion-datetime formControlName="date" displayFormat="DD-MMMM-YYYY"></ion-datetime>
+    </ion-item>
+
+    <ion-item style="margin-top: 18px;">
+      <ion-input type="number" formControlName="ammount" placeholder="Cash Ammount" floating></ion-input>
+    </ion-item>
+    <div *ngIf="!dropDown">
       <ion-icon name="ios-arrow-down" class="downArrow" large></ion-icon>
       <ion-item>
         <ion-label floating>beneficiary Name</ion-label>
-        <ion-input type="text"></ion-input>
+        <ion-input type="text" formControlName="befName"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>beneficiary CNIC</ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-input type="number" formControlName="befCNIC"></ion-input>
       </ion-item>
       <ion-item>
         <ion-label floating>beneficiary Number</ion-label>
-        <ion-input type="number"></ion-input>
+        <ion-input type="number" formControlName="befAccount"></ion-input>
       </ion-item>
-      <button ion-button type="submit" block>submit</button>
-    </form>
+    </div>
+    <button ion-button type="submit" block (click)="createCode()">submit</button>
+  </form>
 
-  </ion-content>
+
+
+  <ion-card *ngIf="createdCode">
+    <ngx-qrcode [qrc-value]="createdCode"></ngx-qrcode>
+    <ion-card-content>
+      <p>Value: {{ createdCode }}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-card *ngIf="scannedCode">
+    <ion-card-content>
+      Result from Scan: {{ scannedCode }}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="createdCode">
+    <button ion-button type="submit" block>Share</button>
+    <button ion-button type="submit" block>Save</button>
+  </ion-card>
+
+
+
+</ion-content>
