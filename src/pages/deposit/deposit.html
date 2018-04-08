@@ -14,37 +14,39 @@
 
 
 <ion-content padding>
+  <form [formGroup]="depositForm" (ngSubmit)="depositform()">
   <ion-item>
     <ion-label floating>Amount</ion-label>
-    <ion-input type="number"></ion-input>
+    <ion-input type="number" formControlName="ammount"></ion-input>
   </ion-item>
-  <ion-list><br>
+  <ion-list ><br>
     <strong class="cash"><b> Select Currency</b></strong>
     <ion-item>
       <ion-label>PKR</ion-label>
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox value="pkr" ></ion-checkbox>
     </ion-item>
 
     <ion-item>
       <ion-label>USD</ion-label>
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox value="usd"></ion-checkbox>
     </ion-item>
 
     <ion-item>
       <ion-label>Others</ion-label>
-      <ion-checkbox></ion-checkbox>
+      <ion-checkbox value="others"></ion-checkbox>
     </ion-item>
     </ion-list>
-    <ion-list radio-group [(ngModel)]="relationship">
+    <ion-list radio-group formControlName="depositType" >
   <ion-item>
     <ion-label>Cash</ion-label>
-    <ion-radio value="friends" checked></ion-radio>
+    <ion-radio value="cash" ></ion-radio>
   </ion-item>
   <ion-item>
     <ion-label>QR Code</ion-label>
-    <ion-radio value="family"></ion-radio>
+    <ion-radio value="qrCode"></ion-radio>
   </ion-item>
 </ion-list>
   
   <button ion-button type="submit" block>submit</button>
+</form>
 </ion-content>

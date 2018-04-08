@@ -16,7 +16,7 @@ import { DashboardPage}  from '../pages/dashboard/dashboard';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = ListPage;
+  rootPage: any = DepositPage;
 
   pages: Array<{title: string, component: any}>;
 

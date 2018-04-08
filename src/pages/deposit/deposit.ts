@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {Validators, FormBuilder, FormGroup , FormControl ,FormArray } from '@angular/forms';
 /**
  * Generated class for the DepositPage page.
  *
@@ -14,8 +14,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'deposit.html',
 })
 export class DepositPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private depositForm: FormGroup;
+  constructor(public navCtrl: NavController,
+   public navParams: NavParams,
+   private formBuilder:FormBuilder
+   ) {
+     this.depositForm = this.formBuilder.group({
+            ammount : ['',Validators.required],
+            currency: 'pkr',
+            depositType: ['',Validators.required],
+          })
+  }
+  depositform(){
+    console.log("form",this.depositForm.value);
   }
 
   ionViewDidLoad() {

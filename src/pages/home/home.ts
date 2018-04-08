@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, ActionSheetController, ToastController, Platform, LoadingController, Loading } from 'ionic-angular';
 
+import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+
 import { File } from '@ionic-native/file';
 import { Transfer, TransferObject } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
@@ -16,15 +18,19 @@ export class HomePage {
 
   lastImage: string = null;
   loading: Loading;
+  private myForm: FormGroup;
  
   constructor(public navCtrl: NavController,
    private camera: Camera,
     private transfer: Transfer,
      private file: File, private filePath: FilePath,
+     private formBuilder:FormBuilder,
       public actionSheetCtrl: ActionSheetController,
        public toastCtrl: ToastController, 
        public platform: Platform,
-        public loadingCtrl: LoadingController) { }
+        public loadingCtrl: LoadingController) {
+          
+         }
  
   public presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
