@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ListPage } from '../list/list';
 
 /**
  * Generated class for the WithdrawPage page.
@@ -22,4 +23,9 @@ export class WithdrawPage {
     console.log('ionViewDidLoad WithdrawPage');
   }
 
+
+  Logout() {
+    this.navCtrl.setRoot(ListPage);
+
+  }
 }

@@ -84,5 +84,6 @@
     <plugin name="com.synconset.imagepicker" spec="~2.1.10">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="your usage message" />
     </plugin>
+    <plugin name="phonegap-plugin-barcodescanner" spec="^7.1.0" />
     <engine name="android" spec="~7.0.0" />
 </widget>

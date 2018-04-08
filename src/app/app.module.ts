@@ -19,6 +19,11 @@ import { File } from '@ionic-native/file';
 import { Transfer } from '@ionic-native/transfer';
 import { FilePath } from '@ionic-native/file-path';
 import { Camera } from '@ionic-native/camera';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
+
 
 @NgModule({
   declarations: [
@@ -32,6 +37,7 @@ import { Camera } from '@ionic-native/camera';
   ],
   imports: [
     BrowserModule,
+    NgxQRCodeModule,
     IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
@@ -51,7 +57,8 @@ import { Camera } from '@ionic-native/camera';
     Transfer,
     Camera,
     FilePath,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    BarcodeScanner
   ]
 })
 export class AppModule {}

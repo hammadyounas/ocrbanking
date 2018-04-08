@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ListPage } from '../list/list';
 
 /**
  * Generated class for the PayorderPage page.
@@ -22,4 +23,11 @@ export class PayorderPage {
     console.log('ionViewDidLoad PayorderPage');
   }
 
+
+  Logout() {
+    this.navCtrl.setRoot(ListPage);
+
+  }
+
+  
 }

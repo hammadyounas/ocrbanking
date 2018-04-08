@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup , FormControl ,FormArray } from '@angular/forms';
+import { ListPage } from '../list/list';
 /**
  * Generated class for the DepositPage page.
  *
@@ -32,5 +33,13 @@ export class DepositPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad DepositPage');
   }
+
+
+  Logout() {
+    this.navCtrl.setRoot(ListPage);
+
+  }
+
+
 
 }

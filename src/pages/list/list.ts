@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { DashboardPage } from "../dashboard/dashboard";
+
+
 
 @Component({
   selector: 'page-list',
@@ -33,5 +36,10 @@ export class ListPage {
     this.navCtrl.push(ListPage, {
       item: item
     });
+  }
+
+
+  login() {
+    this.navCtrl.push(DashboardPage)
   }
 }
